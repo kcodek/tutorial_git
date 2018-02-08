@@ -54,3 +54,12 @@ $git push -u origin master
 #remove a branch
 #$ git branch -d cat
 
+#admin feature - creates and checks out branch
+#$ git checkout -b admin
+
+#what git pull does internally
+1. Fetch(or Sync) our local repository with the remote one - $git fetch
+2. Merges the origin/master with master $ git merge origin/master
+
+Conflict
+Commit editor
