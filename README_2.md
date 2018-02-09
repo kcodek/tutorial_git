@@ -210,8 +210,17 @@ make it an alias
 #$ git config alias.pushall "push --recurse-submodules=on-demand"
 
 
+#REFLOG
+LOST DATA - after a hard reset
+git keeps a second log in the local repo, called the reflog
+#$ git reflog
+#$ git reset --hard 123fkdkl #(from git reflog)
+#$ git reset --hard HEAD@{1}
 
+DELETED BRANCHES
+$ git log --walk-reflogs
 
-
+$ git branch <newbranch_name> SHA
+$ git branch <newbranch_name> HEAD@{1}
 
 
