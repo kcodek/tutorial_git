@@ -123,3 +123,40 @@ Now run another rebase to move your commit after the latest fetched one.
 #   git log --since=1.hour.ago
 #   git log --since=1.month.ago --until=2.weeks.ago
 #   git log --since=2018.01.01 --until=2018.02.08
+
+ #  git diff HEAD^ #parent of latest commit
+ #  git diff HEAD^^ #grandparent of latest commit
+ #  git diff HEAD~5 # five commits ago
+ #  git diff HEAD^..HEAD #second most recent commit vs. most recent
+
+#git log --oneline
+    b200d73 (HEAD -> master) log pretty
+    05a597d fetch and rebase
+#git diff b200d73 05a597d
+
+#git diff master shopping_cart
+#git diff --since=1.week.ago --until=1.minute.ago 
+#git blame README.md --date short
+
+Excluding files
+.git/info/exclude  - list the folder to exclude it from git
+
+.gitignore - don't commit log files
+logs/*.log  - from logs folder no .log file
+
+#$ git rm readme.txt
+#$ git status
+#$ git commit -m "Remove readme.txt"
+
+stop watching the changes
+#$ git rm --cached development.log
+#$ git add .gitignore
+#$ git commit ... 
+
+#git config --global user.name "kcodek"
+#git config --global user.email "a@gmail.com"
+#git config --global core.editor emacs
+#git config --global merge.too opendiff
+git config --list
+
+
