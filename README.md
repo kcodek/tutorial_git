@@ -110,3 +110,16 @@ While pull might work, I want you to retrieve the changes without merging them. 
 so use git fetch instead
 #$git fetch
 
+Now run another rebase to move your commit after the latest fetched one.
+
+#$ git log --pretty=oneline
+#$ git config --global color.ui true  
+#$ git log --pretty=format:"%h %ad- %s [%an]"   
+#$ git log --oneline -p        
+#$ git log --oneline --stat
+#$ git log --oneline --graph             
+#  git log --until=1.minute.ago
+#   git log --since=1.day.ago
+#   git log --since=1.hour.ago
+#   git log --since=1.month.ago --until=2.weeks.ago
+#   git log --since=2018.01.01 --until=2018.02.08
