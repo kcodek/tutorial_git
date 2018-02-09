@@ -124,6 +124,9 @@ Now run another rebase to move your commit after the latest fetched one.
 #   git log --since=1.month.ago --until=2.weeks.ago
 #   git log --since=2018.01.01 --until=2018.02.08
 
+
+get a diff that includes the previous commit, as well as its parent.
+# git diff HEAD~2
  #  git diff HEAD^ #parent of latest commit
  #  git diff HEAD^^ #grandparent of latest commit
  #  git diff HEAD~5 # five commits ago
@@ -134,9 +137,19 @@ Now run another rebase to move your commit after the latest fetched one.
     05a597d fetch and rebase
 #git diff b200d73 05a597d
 
+Bring up a summary of file changes.
+
+
+Use the -p option(--patch) to display diff changes in the output included in the log.
+#git log -p
+
+
+
 #git diff master shopping_cart
 #git diff --since=1.week.ago --until=1.minute.ago 
 #git blame README.md --date short
+Use git blame to see the annotated source, so you can figure out who made all these changes
+
 
 Excluding files
 .git/info/exclude  - list the folder to exclude it from git
@@ -157,6 +170,22 @@ stop watching the changes
 #git config --global user.email "a@gmail.com"
 #git config --global core.editor emacs
 #git config --global merge.too opendiff
-git config --list
+#git config --list
+
+# $git config user.email "admin@example.com"
+# for the current repo
+
+git config --global alias.mylog \
+"log --pretty=format: '%h %s [%an]' --graph"
+
+git config --global alias.lol \
+"log --graph --decorate --pretty=oneline --abbrev-commit --all"
+
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit 
+
+ 
 
 
