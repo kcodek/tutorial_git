@@ -218,6 +218,10 @@ git keeps a second log in the local repo, called the reflog
 #$ git reset --hard HEAD@{1}
 
 DELETED BRANCHES
+
+ou decide to clean house a bit. You know that all branches have either been merged or abandoned, so you're going to delete them to keep a tidy repository. Go ahead and get started by deleting the fluffy_poodle branch.
+
+# git branch -D fluffy_poodle
 $ git log --walk-reflogs
 
 $ git branch <newbranch_name> SHA
