@@ -76,6 +76,9 @@ stash has been applied but still it's there ..
 #show a particular stash
 #$ git stash show stash@{0} 
 #$ git stash show --patch # shows file diffs
+
+git stash show stash@{2} --patch
+
 #$ git stash save "Adding a stash message"
 
 
@@ -84,6 +87,52 @@ BRANCHING
 #$git stash branch 
 checks a new branch out automatically & drops the stash automatically.
 The new branch is an ordinary branch ready for commits
+
+#PURGING HISTORY
+even if a file is deleted, its contents will still be visible in history.
+
+TREE FILTER
+
+#$ git filter-branch --tree-filter <shell command>
+Git will check each commit out into working directory, run your command and re-commit
+
+#--all  # filter all commits in all branches
+#HEAD #filter only current branch
+
+examples:
+#remove passwords.txt
+--tree-filter 'rm -f passwords.txt'
+
+#doesn't fail if file isn't present
+#git filter-branch --tree-filter 'rm -f passwords.txt' -- --all
+
+#removes video files
+--tree-filter 'find . -name "*.mp4" -exec rm {} \;' 
+
+INDEX FILTER
+# command must operate on a staging 
+
+Remember, --index-filter will need a command that works on the staging area, which is going to be some sort of git command.
+
+git will run the command against each commit but without checking it out first(so, it's faster)
+
+--index-filter 'rm -f passwords.txt' # operates on working dir.
+
+#$ git filter-branch --index-filter 'git rm --cached --ignore-unmatch master_password.txt'
+
+
+--index-filter 'git rm --cached --ignore-unmatch passwords.txt' #operates on staging area, succeeds even if the file is not present
+
+
+
+You must use the force (-f) to override the history backup for filter-branch.
+
+#$ git filter-branch -f --tree-filter 'rm -f master_username.txt -- --all'
+
+
+#$ git filter-branch -f --prune-empty -- --all
+#prune empty option drops commits that don't alter any files
+
 
 
 
