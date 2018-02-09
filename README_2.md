@@ -133,6 +133,38 @@ You must use the force (-f) to override the history backup for filter-branch.
 #$ git filter-branch -f --prune-empty -- --all
 #prune empty option drops commits that don't alter any files
 
+#WORKING TOGETHER
+LF in mac/Linux
+CR in windows
+
+LINE endings
+#$ git config --global core.autocrlf input #changes CR/LF to LF on commit (on unix like systems)
+#git config --global core.autocrlf true #changes LF to CR/LF on  checkout (on windows)
+
+GIT attributes file
+
+type  conversion settings
+*     text=auto
+*.jpg  binary
+*.sh   text eol=lf
+*.bat  text eol=crlf
+
+CHERRY-PICK
+#git checkout development
+#git cherry-pick 8091a43(SHA)
+
+Notice the SHA on the master and development are different after copy/
+because it has a different parent on production branch
+
+#git cherry-pic --edit 5321
+
+#$ git cherry-pick --no-commit 32431df 34tfe44 
+--no-commit pulls in changes and stages them but doesn't commit
+
+#git  cherry-pick -x 5321 
+-x adds source SHA to commit message
+#git cherry-pick --signoff 5321
+-signoff adds current user's name to commit message
 
 
 
