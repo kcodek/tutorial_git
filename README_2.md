@@ -166,6 +166,49 @@ because it has a different parent on production branch
 #git cherry-pick --signoff 5321
 -signoff adds current user's name to commit message
 
+SUBMODULES
+
+#A git repo inside a Git repo
+-pull down updates easily
+-Test your changes with an actual dependent project
+-share changes easily
+-History independent of containing repo
+
+#$ git submodule add git@example.com.:css.git
+#$ git commit -m "Add CSS submodule"
+#$ git push
+#$ cat .gitmodules #config for submodules
+
+to get the submodules, we need to initialize them
+#$ git submodule init
+#$ git pull
+
+when there are new commits in the parent module
+#$ git submodule update #code gets checked out head less
+"Not currently on any branch"
+
+creating a new branch with your most recent commit: "a7eded4". Name the branch temp_changes.
+#$ git branch temp_changes a7eded4
+
+You need to create a new branch from the commit with the SHA: 'a7eded4'. Try starting with the 'branch' git command.
+
+
+#$ git merge temp_changes
+#git merge a7eded4
+& then
+#push parent 
+
+#Push twice when editing submodules
+After finishing up a bunch of changes, you want to push them up to the remote so you can share it with your other co-workers that are working on the project. Since you're using submodules, you should make sure to use the option which checks whether you have un-pushed submodules.
+# git push --recurse-submodules=check
+ # aborts a push if you haven't pushed a submodule, run this from parent directory
+We need to push submodule changes again. But this time, instead of going into the submodule to push it, just use the on-demand option for the --recurse-submodules option. This way submodules that need it will be pushed automatically.
+#$ git push --recurse-submodules=on-demand
+
+make it an alias
+#git config alias.anything-you-want "push --recurse-submodules=on-demand"
+#$ git config alias.pushall "push --recurse-submodules=on-demand"
+
 
 
 
