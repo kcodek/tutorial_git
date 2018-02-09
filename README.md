@@ -93,3 +93,10 @@ $ git remote show origin
 
 You still have a stale local branch tracking the now-deleted origin/weasel. Clean up your local references.git
 
+
+#$git fetch
+
+#git rebase
+1. Move all changes to master which are not in master to temporary area
+2. Run all origin/master commits
+3.Run all commits in the temporary area, one at a time
