@@ -100,3 +100,13 @@ You still have a stale local branch tracking the now-deleted origin/weasel. Clea
 1. Move all changes to master which are not in master to temporary area
 2. Run all origin/master commits
 3.Run all commits in the temporary area, one at a time
+
+if there are conflicts while rebase
+#$"git rebase --continue"
+#$ git rebase --skip
+#$ git rebase --abort
+
+While pull might work, I want you to retrieve the changes without merging them. Pull will automatically merge the changes, use fetch instead.
+so use git fetch instead
+#$git fetch
+
